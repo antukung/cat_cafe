@@ -80,5 +80,52 @@ WHERE Llego_con_alguien = '';
 
 UPDATE cat_cafe
 SET Llego_con_alguien = NULL
-WHERE Llego_con_alguien = 'ni tiene';
+WHERE Llego_con_alguien = 'no tiene';
 
+/* Insertar un cuadro de TRUE O FALSE para saber si estan con dieta*/
+
+ALTER TABLE cat_cafe
+ADD Estan_a_dieta BOOLEAN;
+
+UPDATE cat_cafe
+SET Estan_a_dieta = (Peso > 4);
+
+SELECT * FROM  cat_cafe;
+
+/*Agregar la edad que falta para los michis se juvilen*/
+
+ALTER TABLE cat_cafe
+ADD Falta_para_juvilarse INT;
+
+UPDATE cat_cafe
+SET Falta_para_juvilarse = (11 - Edad);
+
+SELECT * FROM  cat_cafe;
+
+/*Ahora agrego dos gatos mas */
+
+INSERT INTO cat_cafe (Nombre, Apodo, Edad, Peso, Gustos, Llego_con_alguien, Color_pelo, Color_ojos)
+VALUES ('Toffee', 'Tofisito', 4, 3.4, 'jugar y estar solo aveces', '', 'Blanco-gris', 'Verdosos');
+
+INSERT INTO cat_cafe (Nombre, Apodo, Edad, Peso, Gustos, Llego_con_alguien, Color_pelo, Color_ojos)
+VALUES ('Chucky', '' , 10, 4.3, 'dormir y caminar', '' , 'Naranja-blanco', 'Amarillentos');
+
+/*Y hago los cambios correspondiente*/
+
+UPDATE cat_cafe
+SET Apodo = NULL
+WHERE Apodo= '';
+
+UPDATE cat_cafe
+SET Llego_con_alguien = NULL
+WHERE Llego_con_alguien = '';
+
+UPDATE cat_cafe
+SET Estan_a_dieta = (Peso > 4);
+
+UPDATE cat_cafe
+SET Falta_para_juvilarse = (11 - Edad);
+
+SELECT * FROM  cat_cafe;
+
+/*Termine listo*/
